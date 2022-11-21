@@ -5,9 +5,7 @@ class Student < ApplicationRecord
   end
  
   def self.grades
-    Student.all.order(grade: :desc).pluck(:first_name, :last_name, :grade).map do |student|
-      {first_name: student[0], last_name: student[1], grade: student[2]}
-    end
+    Student.order(grade: :desc)
   end
 
   def self.highest_grade
